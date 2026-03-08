@@ -12,6 +12,7 @@ android_library {
 
     static_libs: [
         "ax_kt",
+        "ax_deviceinfo",
         "PlatformAnimationLib",
         "PlatformMotionTestingComposeValues",
         "androidx.core_core-ktx",
@@ -31,6 +32,7 @@ android_library {
         "androidx.compose.material_material-icons-extended",
         "androidx.compose.runtime_runtime",
         "androidx.compose.ui_ui",
+        "lottie_compose",
         "kotlinx-coroutines-core",
         "SettingsLib",
     ],
