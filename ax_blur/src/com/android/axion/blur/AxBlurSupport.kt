@@ -23,10 +23,12 @@ internal object AxBlurSupport {
     fun supportsCrossWindowBlur(): Boolean {
         if (
             !CrossWindowBlurListeners.CROSS_WINDOW_BLUR_SUPPORTED ||
-            !ActivityManager.isHighEndGfx() ||
-            AxBlurProperties.disableBlur
+            !ActivityManager.isHighEndGfx()
         ) {
             return false
+        }
+        if (AxBlurProperties.forceEnabled) {
+            return true
         }
         return try {
             CrossWindowBlurListeners.getInstance().isCrossWindowBlurEnabled
