@@ -160,6 +160,20 @@ object DeviceInfoProvider {
         if (processorInfo.isNotEmpty()) {
             return processorInfo.replace("_", " ")
         }
+
+        val platform = SystemProperties.get("ro.board.platform", "").trim()
+        val socModel = SystemProperties.get("ro.soc.model", "").trim()
+
+        if (platform.isNotEmpty() && socModel.isNotEmpty()) {
+            val formattedPlatform = platform.replaceFirstChar { it.titlecase(Locale.getDefault()) }
+            val formattedSoc = socModel.uppercase()
+            return "$formattedPlatform $formattedSoc"
+        } else if (socModel.isNotEmpty()) {
+            return socModel.uppercase()
+        } else if (platform.isNotEmpty()) {
+            return platform.replaceFirstChar { it.titlecase(Locale.getDefault()) }
+        }
+
         return Build.HARDWARE.replaceFirstChar { it.titlecase(Locale.getDefault()) }
     }
 
