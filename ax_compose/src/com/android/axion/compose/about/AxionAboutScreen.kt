@@ -84,6 +84,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.res.stringResource
+import com.android.axion.compose.R
 import com.android.axion.compose.scaffold.AxionScaffold
 import com.android.axion.deviceinfo.DeviceInfoProvider
 import kotlinx.coroutines.Dispatchers
@@ -144,7 +146,7 @@ fun MatrixxAboutScreen(
 
     Surface(modifier = modifier.fillMaxSize(), color = MaterialTheme.colorScheme.surfaceContainer) {
         AxionScaffold(
-            title = "About phone",
+            title = stringResource(R.string.about_phone_title),
             onBackClick = onNavigateBack,
             collapsedByDefault = false,
         ) { paddingValues ->
@@ -414,27 +416,27 @@ private fun SpecsGrid(
     Column(verticalArrangement = Arrangement.spacedBy(gap)) {
         if (isTablet) {
             SpecRowCard(surfaceColor, RoundedCornerShape(topStart = large, topEnd = large, bottomStart = small, bottomEnd = small)) {
-                SpecItem(Modifier.weight(1f), Icons.Outlined.Memory, "Processor", processor)
-                SpecItem(Modifier.weight(1f), Icons.Outlined.CameraAlt, "Camera", "$rearCamera\n$frontCamera")
+                SpecItem(Modifier.weight(1f), Icons.Outlined.Memory, stringResource(R.string.about_processor), processor)
+                SpecItem(Modifier.weight(1f), Icons.Outlined.CameraAlt, stringResource(R.string.about_camera), "$rearCamera\n$frontCamera")
                 SpecItem(Modifier.weight(1f), Icons.Outlined.DeveloperBoard, "RAM", ram)
             }
             SpecRowCard(surfaceColor, RoundedCornerShape(topStart = small, topEnd = small, bottomStart = large, bottomEnd = large)) {
-                SpecItem(Modifier.weight(1f), Icons.Outlined.GridView, "Storage", storage)
-                SpecItem(Modifier.weight(1f), Icons.Outlined.BatteryStd, "Battery", battery)
-                SpecItem(Modifier.weight(1f), Icons.Outlined.Smartphone, "Screen", screen)
+                SpecItem(Modifier.weight(1f), Icons.Outlined.GridView, stringResource(R.string.about_storage), storage)
+                SpecItem(Modifier.weight(1f), Icons.Outlined.BatteryStd, stringResource(R.string.about_battery), battery)
+                SpecItem(Modifier.weight(1f), Icons.Outlined.Smartphone, stringResource(R.string.about_screen), screen)
             }
         } else {
             SpecRowCard(surfaceColor, RoundedCornerShape(topStart = large, topEnd = large, bottomStart = small, bottomEnd = small)) {
-                SpecItem(Modifier.weight(1f), Icons.Outlined.Memory, "Processor", processor)
-                SpecItem(Modifier.weight(1f), Icons.Outlined.CameraAlt, "Camera", "$rearCamera\n$frontCamera")
+                SpecItem(Modifier.weight(1f), Icons.Outlined.Memory, stringResource(R.string.about_processor), processor)
+                SpecItem(Modifier.weight(1f), Icons.Outlined.CameraAlt, stringResource(R.string.about_camera), "$rearCamera\n$frontCamera")
             }
             SpecRowCard(surfaceColor, RoundedCornerShape(small)) {
                 SpecItem(Modifier.weight(1f), Icons.Outlined.DeveloperBoard, "RAM", ram)
-                SpecItem(Modifier.weight(1f), Icons.Outlined.GridView, "Storage", storage)
+                SpecItem(Modifier.weight(1f), Icons.Outlined.GridView, stringResource(R.string.about_storage), storage)
             }
             SpecRowCard(surfaceColor, RoundedCornerShape(topStart = small, topEnd = small, bottomStart = large, bottomEnd = large)) {
-                SpecItem(Modifier.weight(1f), Icons.Outlined.BatteryStd, "Battery", battery)
-                SpecItem(Modifier.weight(1f), Icons.Outlined.Smartphone, "Screen", screen)
+                SpecItem(Modifier.weight(1f), Icons.Outlined.BatteryStd, stringResource(R.string.about_battery), battery)
+                SpecItem(Modifier.weight(1f), Icons.Outlined.Smartphone, stringResource(R.string.about_screen), screen)
             }
         }
     }
@@ -489,7 +491,7 @@ private fun DeviceDetailsSection(androidVersion: String, onSeeAll: () -> Unit) {
 
     Column {
         Text(
-            "Device details",
+            stringResource(R.string.about_device_details),
             style = MaterialTheme.typography.labelLarge,
             color = MaterialTheme.colorScheme.primary,
             modifier = Modifier.padding(bottom = 12.dp),
@@ -513,7 +515,7 @@ private fun DeviceDetailsSection(androidVersion: String, onSeeAll: () -> Unit) {
                     verticalArrangement = Arrangement.Center
                 ) {
                     Text(
-                        "Android version",
+                        stringResource(R.string.about_android_version),
                         style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.Bold),
                         color = MaterialTheme.colorScheme.onSurface,
                     )
@@ -543,7 +545,7 @@ private fun DeviceDetailsSection(androidVersion: String, onSeeAll: () -> Unit) {
                 ) {
                     Column(verticalArrangement = Arrangement.Center) {
                         Text(
-                            "See all",
+                            stringResource(R.string.about_see_all),
                             style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.Bold),
                             color = MaterialTheme.colorScheme.onSurface,
                         )

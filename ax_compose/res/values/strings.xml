@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="long_press_to_reset">Long press to reset</string>
+    <string name="about_phone_title">System information</string>
+    <string name="about_processor">Processor</string>
+    <string name="about_camera">Camera</string>
+    <string name="about_storage">Storage</string>
+    <string name="about_device_details">Device details</string>
+    <string name="about_android_version">Android version</string>
+    <string name="about_see_all">See all</string>
+    <string name="about_battery">Battery</string>
+    <string name="about_screen">Screen</string>
 </resources>

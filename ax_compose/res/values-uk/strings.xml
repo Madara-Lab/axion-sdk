@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="about_phone_title">Системна інформація</string>
+    <string name="about_processor">Процесор</string>
+    <string name="about_camera">Камера</string>
+    <string name="about_storage">Сховище</string>
+    <string name="about_device_details">Інформація про пристрій</string>
+    <string name="about_android_version">Версія Android</string>
+    <string name="about_see_all">Переглянути все</string>
+    <string name="about_battery">Акумулятор</string>
+    <string name="about_screen">Екран</string>
+    <string name="long_press_to_reset">Натисніть і утримуйте, щоб скинути</string>
+</resources>
