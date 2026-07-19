@@ -49,7 +49,6 @@ internal class AxBackdropBlurSettingsRepository(
     )
 
     fun globalBlurEnabled(): Boolean {
-        if (AxBlurProperties.forceEnabled) return true
         return globalSettings.getInt(
             Settings.Global.DISABLE_WINDOW_BLURS,
             if (AxBlurProperties.defaultGlobalBlurEnabled) 0 else 1,

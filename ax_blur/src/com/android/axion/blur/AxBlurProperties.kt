@@ -19,10 +19,10 @@ package com.android.axion.blur
 import android.os.SystemProperties
 
 internal object AxBlurProperties {
-    private const val PROP_FORCE_ENABLE = "persist.sysui.disableBlur"
+    private const val PROP_DISABLE_BLUR = "persist.sysui.disableBlur"
     private const val PROP_GLOBAL_BLUR_ENABLED = "ro.custom.blur.enable"
 
-    val forceEnabled: Boolean = SystemProperties.getBoolean(PROP_FORCE_ENABLE, false)
+    val disableBlur: Boolean = SystemProperties.getBoolean(PROP_DISABLE_BLUR, false)
     val defaultGlobalBlurEnabled: Boolean =
-        forceEnabled || SystemProperties.getBoolean(PROP_GLOBAL_BLUR_ENABLED, true)
+        SystemProperties.getBoolean(PROP_GLOBAL_BLUR_ENABLED, true)
 }
