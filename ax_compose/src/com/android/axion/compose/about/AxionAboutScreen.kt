@@ -298,8 +298,8 @@ private fun BannerSection(
                             wallpaperHolder = wallpaperHolder,
                             isTablet = isTablet,
                             modifier = Modifier
-                                .fillMaxHeight(0.75f)
-                                .padding(horizontal = 24.dp),
+                                .fillMaxHeight(0.92f)
+                                .padding(horizontal = 8.dp),
                         )
                     }
                 }
