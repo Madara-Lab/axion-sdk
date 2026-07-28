@@ -17,6 +17,7 @@ package com.android.axion.compose.about
 
 import android.app.WallpaperManager
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
 import android.os.Build
 import android.os.SystemProperties
@@ -271,12 +272,45 @@ private fun BannerSection(
                         shape = RoundedCornerShape(cardRadius),
                         color = surfaceColor,
                     ) {
-                        Box(
+                        val context = LocalContext.current
+
+                        val deviceCodeName = remember {
+                            SystemProperties.get("ro.product.device", "").lowercase()
+                        }
+
+                        val deviceBitmap = remember(deviceCodeName) {
+                            val resId = context.resources.getIdentifier(deviceCodeName, "drawable", context.packageName)
+                            val targetRes = if (resId != 0) resId else context.resources.getIdentifier("matrixx", "drawable", context.packageName)
+                            if (targetRes != 0) {
+                                BitmapFactory.decodeResource(context.resources, targetRes)?.asImageBitmap()
+                            } else {
+                                null
+                            }
+                        }
+
+                        Column(
                             modifier = Modifier
                                 .fillMaxSize()
                                 .padding(20.dp),
-                            contentAlignment = Alignment.BottomStart,
+                            verticalArrangement = Arrangement.SpaceBetween,
+                            horizontalAlignment = Alignment.Start,
                         ) {
+                            Box(
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .fillMaxWidth(),
+                                contentAlignment = Alignment.Center,
+                            ) {
+                                deviceBitmap?.let { bitmap ->
+                                    Image(
+                                        bitmap = bitmap,
+                                        contentDescription = null,
+                                        modifier = Modifier.fillMaxSize(),
+                                        contentScale = ContentScale.Fit,
+                                    )
+                                }
+                            }
+
                             Text(
                                 deviceName,
                                 style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),

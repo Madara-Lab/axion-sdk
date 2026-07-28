@@ -15,6 +15,8 @@
  */
 package com.android.axion.compose.about
 
+import android.os.Build
+import android.os.SystemProperties
 import androidx.compose.animation.core.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.*
@@ -27,7 +29,7 @@ import com.airbnb.lottie.compose.*
 @Composable
 fun AnimatedDeviceIllustration(
         modifier: Modifier = Modifier,
-        deviceName: String = "OnePlus 9 Pro",
+        deviceName: String = SystemProperties.get("ro.product.model", Build.MODEL),
         version: String = "16",
         atomColor: androidx.compose.ui.graphics.Color? = null
 ) {
